@@ -23,7 +23,7 @@ import java.io.IOException;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
     Button button;
-    Button label;
+    Button button2;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -34,11 +34,11 @@ public class HelloApplication extends Application implements EventHandler<Action
         ObservableList<PieChart.Data> data= FXCollections.observableArrayList();
         data.addAll(new PieChart.Data("java",49),new PieChart.Data("js",70),new PieChart.Data("phyton",75),new PieChart.Data("Frame Works",80));
         pieChart.setData(data);
-         button=new Button("play");
+         button1=new Button("play");
          button.setOnAction(this);
-         label=new Button("label");
-         label.setOnAction(this);
-        root.getChildren().addAll(pieChart,label,button);
+         button2=new Button("label");
+         button2.setOnAction(this);
+        root.getChildren().addAll(pieChart,button1,button2);
         stage.setTitle("Hello!");
         Scene scene=new Scene(root);
 
@@ -52,13 +52,13 @@ public class HelloApplication extends Application implements EventHandler<Action
     }
     @Override
     public void handle(ActionEvent event) {
-        if (event.getSource().equals(button)){
-            button.setBackground(Background.fill(Color.LIGHTBLUE));
-            label.setText("you click label");
+        if (event.getSource().equals(button1)){
+            button1.setBackground(Background.fill(Color.LIGHTBLUE));
+            button1.setText("you click Button1");
         }
-        if (event.getSource().equals(label)){
-            label.setBackground(Background.fill(Color.RED));
-            button.setText("you click button");
+        if (event.getSource().equals(button2)){
+            button2.setBackground(Background.fill(Color.RED));
+            button2.setText("you click button2");
         }
     }
 }
